@@ -14,26 +14,16 @@ const seed = async () => {
       limit: 2,
     },
   });
-  
-  const user = await prisma.user.create({
-    data: {
-      name: "John",
-    },
-  });
-  
-  const user2 = await prisma.user.create({
-    data: {
-      name: "Sam",
-    },
-  });
-  
-  await prisma.ticket.create({
-    data: {
-      userId: user.id,
-      ticketClassId: ticketClass.id,
-    },
-  });
-  
+
+  await Promise.all(
+    ["John", "Sam", "Bob", "Jane"].map((name) =>
+      prisma.user.create({
+        data: {
+          name,
+        },
+      }),
+    ),
+  );
 };
 
 seed();
