@@ -1,0 +1,24 @@
+{
+  "name": "postgres-playground",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start-db": "./start-db.sh",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "studio": "prisma studio",
+    "reset-db": "prisma migrate reset"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "author": "sumtsui@gmail.com",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "prisma": "^6.5.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}
